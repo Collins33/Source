@@ -5,7 +5,7 @@ import datetime as dt
 
 #the welcome view
 def welcome(request):
-    return HttpResponse("COLLINS NJAU")
+    return render(request,'welcome.html')
 
 def newsOfTheDay(request):
     date=dt.date.today()#get current date
