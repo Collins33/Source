@@ -1,4 +1,6 @@
 {% load bootstrap3 %}
+
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +10,11 @@
   {% else %}
   <title> Moringa Tribune </title>
   {% endif %}
-  {%block styles%} {%bootstrap_css%} {%endblock%}
+
+  {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
+  {% endblock %}
 
 </head>
 
