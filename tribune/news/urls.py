@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns=[
     url('^$',views.welcome,name = 'welcome'),
+    url('^today/$',views.newsOfTheDay,name='newsToday')
 ]
