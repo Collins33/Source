@@ -5,3 +5,10 @@ class Editor(models.Model):
     firstName=models.CharField(max_length=30)
     lastName=models.CharField(max_length=30)
     email=models.EmailField()
+    #make model readable from the shell
+
+
+    def __str__(self):
+        return self.firstName
+    class Meta:
+        ordering=['firstName']
