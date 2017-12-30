@@ -1,4 +1,8 @@
 from django.db import models
+import datetime as dt
+
+
+
 
 # Create your models here.
 class Editor(models.Model):
@@ -17,7 +21,7 @@ class Editor(models.Model):
     #delete method
     def deleteEditor(self):
         self.delete()
-            
+
     class Meta:
         ordering=['firstName']
 
@@ -34,6 +38,13 @@ class Article(models.Model):
     editor = models.ForeignKey(Editor, on_delete=models.CASCADE)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
+
+
+    @classmethod
+    def today_news(cls):
+        today=dt.date.today()
+        news=cls.objects.filter(pub_date__date = today)
+        return news
 
     def __str__(self):
         return self.title
