@@ -10,6 +10,14 @@ class Editor(models.Model):
 
     def __str__(self):
         return self.firstName
+    #save method
+    def saveEditor(self):
+        self.save()
+
+    #delete method
+    def deleteEditor(self):
+        self.delete()
+            
     class Meta:
         ordering=['firstName']
 
