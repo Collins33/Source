@@ -2,13 +2,15 @@ from django.shortcuts import render,redirect
 # Create your views here.
 from django.http import HttpResponse,Http404
 import datetime as dt
+from .models import Article
 
 
 
 
 def newsOfTheDay(request):
     date=dt.date.today()#get current date
-    return render(request, 'allnews/today-news.html', {"date": date,})
+    news=Article.today_news()
+    return render(request, 'allnews/today-news.html', {"date": date,"news":news})
 
 
 
