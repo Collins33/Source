@@ -27,3 +27,18 @@ def pastDaysNews(request,pastDate):
         return redirect(newsOfTheDay)
 
     return render(request, 'allnews/past-news.html', {"date": date})
+
+
+def search_results(request):
+    #check if the article query exists in the request.GET
+    if 'article' in request.GET and request.GET['article']:
+        #get what the user searched for
+        search_term=request.GET.get('article')
+        #get the searched articles
+        search_articles=Article.search_by_title(search_term)
+        message = f"{search_term}"
+        #render the template
+        return render(request,'allnews/search.html',{"message":message,"articles":search_articles})
+    else:
+        message="You havent searched for any news articles"
+        return render(request,'allnews/search.html',{"message":message})
