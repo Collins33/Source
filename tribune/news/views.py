@@ -42,3 +42,11 @@ def search_results(request):
     else:
         message="You havent searched for any news articles"
         return render(request,'allnews/search.html',{"message":message})
+
+
+def article(request,article_id):
+    try:
+        article=Article.objects.get(id=article_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,'allnews/article.html',{"article":article})
