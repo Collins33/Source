@@ -3,14 +3,24 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 import datetime as dt
 from .models import Article
+from .forms import NewsLetterForm
 
 
 
 
 def newsOfTheDay(request):
+    #check if it is a post request
+    if request.method == 'POST':
+        form=NewsLetterForm(request.POST)
+        if form.is_valid():
+            print('is valid')
+    else:
+        form=NewsLetterForm()
+
+
     date=dt.date.today()#get current date
     news=Article.today_news()
-    return render(request, 'allnews/today-news.html', {"date": date,"news":news})
+    return render(request, 'allnews/today-news.html', {"date": date,"news":news,"NewsLetterForm":form})
 
 
 
