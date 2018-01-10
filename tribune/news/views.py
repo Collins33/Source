@@ -5,6 +5,7 @@ import datetime as dt
 from .models import Article,NewsLetterRecipient
 from .forms import NewsLetterForm
 from .email import send_welcome_email
+from django.contrib.auth.decorator import login_required
 
 
 
@@ -60,6 +61,7 @@ def search_results(request):
         return render(request,'allnews/search.html',{"message":message})
 
 
+@login_required(login_url='/accounts/login/')#only authenticated users can have access
 def article(request,article_id):
     try:
         article=Article.objects.get(id=article_id)
