@@ -24,9 +24,10 @@
   {%endfor%}
 
   <!-- define form in the template -->
-  <form action="{%url 'newsToday'%}" method=POST>
-
-
+  <form action="{%url 'newsToday'%}" method="POST">
+    {%csrf_token%}
+    {%bootstrap_form NewsLetterForm layout="inline"%}
+    <input type="submit" value="Subscribe">
   </form>
 
 
