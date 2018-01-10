@@ -5,7 +5,7 @@ import datetime as dt
 from .models import Article,NewsLetterRecipient
 from .forms import NewsLetterForm
 from .email import send_welcome_email
-from django.contrib.auth.decorator import login_required
+from django.contrib.auth.decorators import login_required
 
 
 
