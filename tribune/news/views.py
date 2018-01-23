@@ -9,6 +9,11 @@ from django.contrib.auth.decorators import login_required
 
 
 
+def welcome(request):
+    return render(request,"welcome.html")
+
+
+
 
 def newsOfTheDay(request):
     #check if it is a post request
@@ -82,4 +87,4 @@ def new_article(request):
 
     else:
         form=NewsArticleForm()
-    return render(request, 'new_article.html', {"form": form})    
+    return render(request, 'new_article.html', {"form": form})
