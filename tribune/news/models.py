@@ -54,6 +54,11 @@ class Article(models.Model):
         news=cls.objects.filter(title__icontains=search_term)
         return news
 
+    @classmethod
+    def allPosts(cls):
+        all=cls.objects.all()
+        return all
+
     def __str__(self):
         return self.title
 

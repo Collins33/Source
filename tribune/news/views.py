@@ -15,6 +15,9 @@ def welcome(request):
 
 
 
+
+
+
 def newsOfTheDay(request):
     #check if it is a post request
     if request.method == 'POST':

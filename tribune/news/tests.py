@@ -61,4 +61,9 @@ class ArticleTestClass(TestCase):
     def test_get_news_today(self):
         #test for getting today news
         today_news=Article.today_news()
-        self.assertTrue(len(today_news)>0)    
+        self.assertTrue(len(today_news)>0)
+
+    #     #test for getting all posts from the db
+    # def test_get_all_posts(self):
+    #     allArticles=Article.allNews()
+    #     self.assertTrue(len(allArticles)>0)
