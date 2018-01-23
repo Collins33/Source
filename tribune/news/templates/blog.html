@@ -19,8 +19,24 @@
   <div class="container-fluid">
     <div class="row">
       {%include 'navbar.html'%}
-
+      <h1 class="text-center">MY STORY</h1>
     </div>
+
+      <div class="row">
+      {% for new in news %}
+      <h1 class="text-center">WHATS NEW AND TRENDING</h1>
+
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3  craftrow">
+          <img src="{{new.article_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
+          <h1 class="product"> {{ new.title}} </h1>
+      </div>
+
+        </div>
+      {% empty %}
+      <div class="row">
+       <h1 class="text-center">THERE ARE NO POSTS</h1>
+      </div>
+      {% endfor %}
 
   </div>
 
