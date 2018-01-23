@@ -79,11 +79,12 @@ h2{
 
       {% for news in news_article %}
       <h1 class="text-center">WHATS ON MY MIND</h1>
-
+      <a href="{%url 'article' news.id%}">
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  craftrow">
           <img src="{{news.article_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
           <h1 class="product"> {{ news.title}} </h1>
       </div>
+     </a>
 
         </div>
       {% empty %}
