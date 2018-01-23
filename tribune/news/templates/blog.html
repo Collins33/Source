@@ -15,6 +15,59 @@
       <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
  {% endblock %}
 </head>
+<style>
+
+body{
+  font-family: 'Playfair Display', serif;
+}
+h1{
+  color:black;
+  font-size: 20px;
+}
+.companyName{
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+}
+.welcome{
+  height: 500px;
+  background: url("http://wallpapercave.com/wp/GBBSLlA.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.intro{
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  color: black;
+}
+h2{
+  font-family: 'Poppins', sans-serif;
+  color:black;
+}
+.craftrow{
+  padding-right: 10px;
+}
+.searchRow{
+  margin-left: 500px;
+}
+.product{
+  font-family: 'PT Serif', serif;
+  font-size: 20px;
+}
+.productpic{
+  height: 100px;
+}
+.subsription{
+
+  background: url("https://www.wallpapersbrowse.com/images/2a/2ao1a51.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:scroll;
+}
+
+</style>
 <body>
   <div class="container-fluid">
     <div class="row">
@@ -23,12 +76,13 @@
     </div>
 
       <div class="row">
-      {% for new in news %}
+
+      {% for news in news_article %}
       <h1 class="text-center">WHATS NEW AND TRENDING</h1>
 
-      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3  craftrow">
-          <img src="{{new.article_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
-          <h1 class="product"> {{ new.title}} </h1>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  craftrow">
+          <img src="{{news.article_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
+          <h1 class="product"> {{ news.title}} </h1>
       </div>
 
         </div>

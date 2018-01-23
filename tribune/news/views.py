@@ -13,8 +13,8 @@ def welcome(request):
     return render(request,"welcome.html")
 
 def blog(request):
-    news=Article.allPosts()
-    return render(request,"blog.html",{"news":news})
+    news_article=Article.allPosts()
+    return render(request,"blog.html",{"news_article":news_article})
 
 def newsOfTheDay(request):
     #check if it is a post request

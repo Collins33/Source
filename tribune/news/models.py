@@ -51,13 +51,13 @@ class Article(models.Model):
 
     @classmethod
     def search_by_title(cls,search_term):
-        news=cls.objects.filter(title__icontains=search_term)
-        return news
+        news_article=cls.objects.filter(title__icontains=search_term)
+        return news_article
 
     @classmethod
     def allPosts(cls):
-        all=cls.objects.all()
-        return all
+        allArticles=cls.objects.all()
+        return allArticles
 
     def __str__(self):
         return self.title
