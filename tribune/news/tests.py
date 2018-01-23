@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 # Create your tests here.
-from .models import Editor,tags,Article
+from .models import tags,Article
 
 #test the editor module
 class EditorTestClass(TestCase):
