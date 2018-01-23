@@ -132,7 +132,7 @@ p{
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
       <h2 class="text-center">SUBSCRIBE</h2>
-      
+
       <form action="{%url 'welcome'%}" method="POST">
         {%csrf_token%}
         {%bootstrap_form NewsLetterForm layout="inline"%}
@@ -158,6 +158,7 @@ p{
 
   {% block scripts %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript" src="{%static 'js/newsletter.js'%}"></script>
          {% bootstrap_javascript %}
     {% endblock %}
 </body>
