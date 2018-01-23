@@ -1,3 +1,5 @@
+{% load bootstrap3 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Collins Njau</title>
+  {%block styles%}
+  {%bootstrap_css%}
+      <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
+      <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+ {% endblock %}
 </head>
 <body>
+<div class="container-fluid">
+  {%include 'navbar.html'%}
 
+</div>
+
+
+
+  {% block scripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+         {% bootstrap_javascript %}
+    {% endblock %}
 </body>
 </html>
