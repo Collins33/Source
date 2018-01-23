@@ -2,10 +2,27 @@ from django.shortcuts import render,redirect
 # Create your views here.
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 import datetime as dt
-from .models import Article,NewsLetterRecipient
+from .models import Article,NewsLetterRecipient,Project
 from .forms import NewsLetterForm,NewsArticleForm
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProjectSerializer
+
+
+
+#handles the api
+class ProjectList(APIView):
+    def get(self,request,format=None):
+        all_projects=Project.objects.all()
+        serializers=ProjectSerializer(all_projects,many=True)
+        return Response(serializers.data)
+
+
+
+
+
 
 
 
@@ -27,6 +44,9 @@ def newsLetter(request):
 def blog(request):
     news_article=Article.allPosts()
     return render(request,"blog.html",{"news_article":news_article})
+
+
+
 
 def newsOfTheDay(request):
     #check if it is a post request
