@@ -12,11 +12,9 @@ from django.contrib.auth.decorators import login_required
 def welcome(request):
     return render(request,"welcome.html")
 
-
-
-
-
-
+def blog(request):
+    news=Article.allPosts()
+    return render(request,"blog.html",{"news":news})
 
 def newsOfTheDay(request):
     #check if it is a post request
