@@ -122,16 +122,20 @@ p{
   <div class="row footer">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
       <h2 class="text-center">CONTACTS</h2>
+      <h3 class="text-center">PHONE NUMBER:</h3>
+      <P class="text-center">0738807817</P>
+      <h3 class="text-center">EMAIL:</h3>
+      <P class="text-center">collinsnjau39@gmail.com</P>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
       <h2 class="text-center">SOCIAL</h2>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
       <h2 class="text-center">SUBSCRIBE</h2>
-      <form action="{%url 'newsToday'%}" method="POST">
+      <form action="{%url 'welcome'%}" method="POST">
         {%csrf_token%}
         {%bootstrap_form NewsLetterForm layout="inline"%}
-        <input type="submit" value="Subscribe" class="btn btn-default">
+        <input type="submit" value="Subscribe" class="btn btn-info">
       </form>
     </div>
   </div>
