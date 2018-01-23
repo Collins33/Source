@@ -10,17 +10,8 @@ from django.contrib.auth.decorators import login_required
 
 
 def welcome(request):
-    if request.method == "POST":
-        form=NewsLetterForm(request.POST)
-        if form.is_valid():
-            name=form.cleaned_data['your_name']
-            email=form.cleaned_data['email']
-            recipient=NewsLetterRecipient(name=name,email=email)
-            recipient.save()
-            send_welcome_email(name,email)
-            HttpResponseRedirect('welcome')
-    else:
-        form=NewsLetterForm()
+    form=NewsLetterForm()
+    
     return render(request,"welcome.html",{"NewsLetterForm":form})
 
 def blog(request):
