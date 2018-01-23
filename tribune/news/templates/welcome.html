@@ -15,10 +15,79 @@
       <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
  {% endblock %}
 </head>
+<style>
+
+body{
+  font-family: 'Playfair Display', serif;
+}
+h1{
+  color:black;
+  font-size: 20px;
+}
+.companyName{
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+}
+.welcome{
+  height: 500px;
+  background: url("https://wallpapertag.com/wallpaper/full/b/7/4/248319-coding-background-1920x1080-windows-10.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.intro{
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  color: black;
+}
+h2{
+  font-family: 'Poppins', sans-serif;
+  color:black;
+}
+p{
+  font-family: 'Poppins', sans-serif;
+}
+.craftrow{
+  padding-right: 10px;
+}
+.searchRow{
+  margin-left: 500px;
+}
+.product{
+  font-family: 'PT Serif', serif;
+  font-size: 20px;
+}
+.productpic{
+  height: 100px;
+}
+.subsription{
+
+  background: url("https://wallpapertag.com/wallpaper/full/b/7/4/248319-coding-background-1920x1080-windows-10.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:scroll;
+}
+.about{
+  font-size: 30px;
+}
+
+</style>
 <body>
 <div class="container-fluid">
-  <div class="row">
+  <div class="row welcome">
   {%include 'navbar.html'%}
+  <h2>COLLINS NJAU MURU</h2>
+  <h2>SOFTWARE DEVELOPER</h2>
+  </div>
+
+  <div class="row">
+    <h1 class="text-center about">ABOUT ME</h1>
+    <P class="text-center">I am a software developer based in Nairobi. I am deeply passionate about technology and I am driven
+    with the thought of changing the world using technology. My main interests are backend technologies, chatbots and the android operating system.</P>
+    <p class="text-center">I like spending most of my time learning new technologies and finding ways to implement them. When I am not coding, you will find me observing nature and
+     trying to improve my photography skills.</p>
   </div>
 
 </div>
