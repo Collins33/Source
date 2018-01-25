@@ -65,7 +65,7 @@ class Article(models.Model):
 
 class NewsLetterRecipient(models.Model):
     name=models.CharField(max_length=30)
-    
+    text=models.CharField(max_length=200,default="Hello my friend")
     email=models.EmailField()
 
 
