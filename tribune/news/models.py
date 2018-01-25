@@ -65,6 +65,7 @@ class Article(models.Model):
 
 class NewsLetterRecipient(models.Model):
     name=models.CharField(max_length=30)
+    
     email=models.EmailField()
 
 
@@ -73,4 +74,4 @@ class Project(models.Model):
     description=models.CharField(max_length=200)
     github=models.CharField(max_length=100)
     live_url=models.CharField(max_length=100)
-    image=models.ImageField(upload_to='articles/',blank=True)    
+    image=models.ImageField(upload_to='articles/',blank=True)

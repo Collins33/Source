@@ -9,15 +9,25 @@ from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProjectSerializer
+from rest_framework import status
 
 
 
 #handles the api
 class ProjectList(APIView):
-    def get(self,request,format=None):
+    def get(self,request,format=None):#get data from the database
         all_projects=Project.objects.all()
         serializers=ProjectSerializer(all_projects,many=True)
         return Response(serializers.data)
+
+    def post(self,request,format=None):
+        serializers=ProjectSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data,status=status.HTTP_201_CREATED)
+        return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
+
+
 
 
 
@@ -34,6 +44,7 @@ def welcome(request):
 def newsLetter(request):
     name=request.POST.get('your_name')
     email=request.POST.get('email')
+
     recipient=NewsLetterRecipient(name=name,email=email)
     recipient.save()
     send_welcome_email(name,email)
