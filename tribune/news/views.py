@@ -10,11 +10,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProjectSerializer
 from rest_framework import status
+from .permissions import IsAdminOrReadOnly
 
 
 
 #handles the api
 class ProjectList(APIView):
+    permission_class=(IsAdminOrReadOnly)
     def get(self,request,format=None):#get data from the database
         all_projects=Project.objects.all()
         serializers=ProjectSerializer(all_projects,many=True)
