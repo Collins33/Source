@@ -72,6 +72,7 @@ class NewsLetterRecipient(models.Model):
 class Project(models.Model):
     name=models.CharField(max_length=30)
     description=models.CharField(max_length=200)
+    language=models.CharField(max_length=20,default="python-django")
     github=models.CharField(max_length=100)
     live_url=models.CharField(max_length=100)
     first_image=models.ImageField(upload_to='articles/',blank=True)
