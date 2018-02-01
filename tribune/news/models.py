@@ -74,4 +74,5 @@ class Project(models.Model):
     description=models.CharField(max_length=200)
     github=models.CharField(max_length=100)
     live_url=models.CharField(max_length=100)
-    image=models.ImageField(upload_to='articles/',blank=True)
+    first_image=models.ImageField(upload_to='articles/',blank=True)
+    second_image=models.ImageField(upload_to='articles/',blank=True)
