@@ -84,10 +84,12 @@ h2{
 
     <div class="row projectRow">
       {% for project in projects%}
+      <a href="{%url 'project' project.id%}">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <img src="{{project.first_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
         <h1 class="product"> {{ project.name}} </h1>
       </div>
+    </a>
       {%empty%}
       <h1 class="There are no projects"></h1>
       {%endfor%}

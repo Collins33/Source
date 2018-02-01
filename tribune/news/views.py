@@ -138,6 +138,15 @@ def new_article(request):
     return render(request, 'new_article.html', {"form": form})
 
 
-def myProject(request):
+def myProject(request):#get all the projects and display them
     allProjects=Project.allProjects()
     return render(request,"project.html",{"projects":allProjects})
+
+#this view function displays a single project
+def project(request,project_id):
+    try:
+        project=Project.objects.get(id=project_id)#grt project that matches project_id
+    except DoesNotExist:
+        raise Http404()# if it does not exist throw 404 error
+
+    return render(request,'projectDetail.html',{"project":project})
