@@ -76,3 +76,9 @@ class Project(models.Model):
     live_url=models.CharField(max_length=100)
     first_image=models.ImageField(upload_to='articles/',blank=True)
     second_image=models.ImageField(upload_to='articles/',blank=True)
+
+
+    @classmethod
+    def allProjects(cls):
+        allProjects=cls.objects.all()
+        return allProjects

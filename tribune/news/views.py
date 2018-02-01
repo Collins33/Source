@@ -139,4 +139,5 @@ def new_article(request):
 
 
 def myProject(request):
-    return render(request,"project.html")
+    allProjects=Project.allProjects()
+    return render(request,"project.html",{"projects":allProjects})
