@@ -1,0 +1,50 @@
+{% load bootstrap3 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  {%block styles%}
+  {%bootstrap_css%}
+      <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
+      <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+ {% endblock %}
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <h1 class="text-center">{{project.name}} || {{project.language}}</h1>
+    </div>
+    <div class="row">
+      <h1>DESCRIPTION</h1>
+      <p>{{project.description}}</p>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <img src="{{project.first_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <img src="{{project.second_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <button class="btn btn-default">WATCH IT LIVE</button>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <button class="btn btn-default">GITHUB REPO</button>
+      </div>
+    </div>
+  </div>
+  {% block scripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+         {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+</html>
