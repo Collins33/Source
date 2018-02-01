@@ -136,3 +136,7 @@ def new_article(request):
     else:
         form=NewsArticleForm()
     return render(request, 'new_article.html', {"form": form})
+
+
+def myProject(request):
+    return render(request,"project.html")
