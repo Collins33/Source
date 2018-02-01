@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 from .serializer import ProjectSerializer
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
+from django.http import JsonResponse
 
 
 
@@ -46,11 +47,12 @@ def welcome(request):
 def newsLetter(request):
     name=request.POST.get('your_name')
     email=request.POST.get('email')
+    text=request.POST.get('message')
+    recipient=NewsLetterRecipient(name=name,email=email,text=text)
+    # recipient.save()
 
-    recipient=NewsLetterRecipient(name=name,email=email)
-    recipient.save()
-    send_welcome_email(name,email)
-    date={'success':'You have been added to the mailing list'}
+    send_welcome_email(name,email,text)
+    data={'success':'You have been added to the mailing list'}
     return JsonResponse(data)
 
 
