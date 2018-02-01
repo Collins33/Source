@@ -68,6 +68,10 @@ h2{
   background-size: cover;
   background-attachment:scroll;
 }
+.projectRow{
+  margin-left: 300px;
+  margin-right: 300px;
+}
 
 </style>
 
@@ -76,6 +80,17 @@ h2{
     <div class="row">
       {%include 'navbar.html'%}
       <h2 class="text-center">MY PROJECTS</h2>
+    </div>
+
+    <div class="row projectRow">
+      {% for project in projects%}
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <img src="{{project.first_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
+        <h1 class="product"> {{ project.name}} </h1>
+      </div>
+      {%empty%}
+      <h1 class="There are no projects"></h1>
+      {%endfor%}
     </div>
 
 
