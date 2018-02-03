@@ -83,3 +83,9 @@ class Project(models.Model):
     def allProjects(cls):
         allProjects=cls.objects.all()
         return allProjects
+
+    #search the db to get specific project
+    @classmethod
+    def search_by_language(cls,search_language):
+        projects=cls.objects.filter(language__icontains=search_language)
+        return projects
