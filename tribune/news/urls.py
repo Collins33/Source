@@ -14,7 +14,8 @@ urlpatterns=[
     url(r'^ajax/newsletter/$',views.newsLetter,name="newsletter"),
     url(r'^api/projects/$',views.ProjectList.as_view()),
     url(r'^projects/',views.myProject,name="showcase"),
-    url(r'^project/(\d+)',views.project,name="project")
+    url(r'^project/(\d+)',views.project,name="project"),
+    url(r'^searchProject/',views.searchProjects,name="search_project")
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

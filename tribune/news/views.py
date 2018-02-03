@@ -150,3 +150,7 @@ def project(request,project_id):
         raise Http404()# if it does not exist throw 404 error
 
     return render(request,'projectDetail.html',{"project":project})
+
+#for searching for the projects based on the language
+def searchProjects(request):
+    return render(request,"seachProject.html")
