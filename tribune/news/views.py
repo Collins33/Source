@@ -153,4 +153,17 @@ def project(request,project_id):
 
 #for searching for the projects based on the language
 def searchProjects(request):
-    return render(request,"seachProject.html")
+    #check if the project query is in the request.GET object and check if it has a Value
+    if "project" in request.GET and request.GET.get["project"]:
+        #get the searched term
+        search_term=request.GET.get("project")
+        #pass the searched term to the method to filter the projects
+        searched_projects=Project.search_by_language(search_term)
+        #create message to render
+        message=f"{search_term}"
+
+        return render(request,"searchProjects.html",{"message":mesage,"searched_projects":searched_projects})
+
+    else:
+        message="You havent searched for any item"
+        return render(request,"searchProjects.html",{"message":mesage})
