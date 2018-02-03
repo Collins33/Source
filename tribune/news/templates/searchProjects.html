@@ -1,37 +1,145 @@
-{% load bootstrap3 %}
-{% load static %}
+{% load bootstrap3 %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Projects</title>
-  {%block styles%}
-  {%bootstrap_css%}
-      <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
-      <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
- {% endblock %}
+  {%block styles%} {%bootstrap_css%}
+  <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet"> {% endblock %}
 </head>
+
+
+<style>
+  body {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    color: black;
+    font-size: 20px;
+  }
+
+  .companyName {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+  }
+
+  .welcome {
+    height: 500px;
+    background: url("https://wallpapertag.com/wallpaper/full/b/7/4/248319-coding-background-1920x1080-windows-10.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .intro {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    color: black;
+  }
+
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    color: black;
+  }
+
+  p {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .main {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .craftrow {
+    padding-right: 10px;
+  }
+
+  .searchRow {
+    margin-left: 500px;
+  }
+
+  .product {
+    font-family: 'PT Serif', serif;
+    font-size: 20px;
+  }
+
+  .productpic {
+    height: 100px;
+  }
+
+  .subsription {
+
+    background: url("https://wallpapertag.com/wallpaper/full/b/7/4/248319-coding-background-1920x1080-windows-10.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+  }
+
+  .about {
+    font-size: 30px;
+  }
+
+  .main-tools {
+    font-size: 30px;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+
+  .projectRow{
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+</style>
+
+
+
+
 <body>
-<div class="container-fluid">
-  <div class="row">
-    {%include 'navbar.html'%}    
+  <div class="container-fluid">
+    <div class="row">
+      {%include 'navbar.html'%}
+    </div>
+    <div class="row projectRow">
+      {% for project in searched_projects%}
+      <a href="{%url 'project' project.id%}">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <img src="{{project.first_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
+          <h1 class="product"> {{ project.name}} </h1>
+        </div>
+      </a>
+      {%empty%}
+      <h1>found no projects</h1>
+      {%endfor%}
+    </div>
+
+
   </div>
-
-
-</div>
 
 
 
 
 
   {% block scripts %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script type="text/javascript" src="{%static 'js/newsletter.js'%}"></script>
-         {% bootstrap_javascript %}
-    {% endblock %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{%static 'js/newsletter.js'%}"></script>
+  {% bootstrap_javascript %} {% endblock %}
 </body>
+
 </html>
